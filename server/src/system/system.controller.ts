@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Query } from '@nestjs/common';
 import { ApiExtraModels, ApiOkResponse, ApiQuery, ApiTags } from '@nestjs/swagger';
 import { SystemService } from './system.service';
-import { Device, devicesSchema } from './system.types';
+import { Device, devicesSchema, Switch } from './system.types';
 
 @ApiTags('System')
 @Controller()
@@ -29,6 +29,12 @@ export class SystemController {
     this.systemService.setDisplay(id);
 
     return this.systemService.getDevices();
+  }
+
+  @Post('displayswitch')
+  @ApiQuery({name: 'type', enum: Switch})
+  displaySwitch(@Query('type') type: Switch) {
+    this.systemService.displaySwitch(type);
   }
 
   @Post('shutdown')

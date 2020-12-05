@@ -4,7 +4,7 @@ import * as path from 'path';
 import { tmpdir } from 'os'
 import { promises } from 'fs';
 import * as parseCSV from 'csv-parse/lib/sync';
-import { Device } from './system.types';
+import { Device, Switch } from './system.types';
 
 const readFile = promises.readFile;
 
@@ -54,11 +54,15 @@ export class SystemService {
 
   async setAudio(audio: string) {
     console.log('Set audio to: ', audio);
-    spawn('SoundVolumeView.exe', ['/SetDefault', audio, 'all']);
+    await spawn('SoundVolumeView.exe', ['/SetDefault', audio, 'all']);
   }
 
   async setDisplay(display: string) {
     console.log('Set video to: ', display);
-    spawn('MultiMonitorTool.exe', ['/switch', display]);
+    await spawn('MultiMonitorTool.exe', ['/switch', display]);
+  }
+
+  async displaySwitch(type: Switch) {
+    await spawn('DisplaySwitch', [`/${type}`], {});
   }
 }

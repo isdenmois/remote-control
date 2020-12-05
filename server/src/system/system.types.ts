@@ -18,3 +18,10 @@ export const devicesSchema = {
     },
   },
 }
+
+export enum Switch {
+  internal = 'internal',
+  clone = 'clone',
+  extend = 'extend',
+  external = 'external',
+}
