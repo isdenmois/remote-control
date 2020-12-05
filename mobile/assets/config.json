@@ -1,0 +1,88 @@
+{
+  "name": "RemoteIcon",
+  "css_prefix_text": "",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "4e88c565826e21822ad1c33f91d1f74d",
+      "css": "fast_forward",
+      "code": 61520,
+      "src": "fontawesome5"
+    },
+    {
+      "uid": "990e2ebacf09605e7cd8505ee7bd58f0",
+      "css": "fast_backward",
+      "code": 61513,
+      "src": "fontawesome5"
+    },
+    {
+      "uid": "968c26661f1335d9815fa5dff1616cae",
+      "css": "closed_captioning",
+      "code": 61962,
+      "src": "fontawesome5"
+    },
+    {
+      "uid": "0a82f69b150931470de9ca918183dc7d",
+      "css": "power_off",
+      "code": 61457,
+      "src": "fontawesome5"
+    },
+    {
+      "uid": "757afacc32d82967975cbb3b45cfb41b",
+      "css": "desktop",
+      "code": 61704,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "63b3012c8cbe3654ba5bea598235aa3a",
+      "css": "angle-double-up",
+      "code": 61698,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "dfec4ffa849d8594c2e4b86f6320b8a6",
+      "css": "angle-double-down",
+      "code": 61699,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "e4b66f8fc51f1716e12c61c905b96722",
+      "css": "rotate_left",
+      "code": 59392,
+      "src": "material"
+    },
+    {
+      "uid": "cc54a8f180e8391501c1120085ede748",
+      "css": "rotate_right",
+      "code": 59393,
+      "src": "material"
+    },
+    {
+      "uid": "cfb6e143c0650c485536374f2a2f88fb",
+      "css": "television",
+      "code": 62060,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "ce50292e85eb5d6ee3be61b32bf2bdf3",
+      "css": "ok",
+      "code": 59394,
+      "src": "mfglabs"
+    },
+    {
+      "uid": "6d0f3612b0f68e320405f9b84a3f1edf",
+      "css": "ellipsis_h",
+      "code": 61761,
+      "src": "fontawesome5"
+    },
+    {
+      "uid": "1f249a06b4883dcc30c65683c5307ba7",
+      "css": "expand_alt",
+      "code": 62500,
+      "src": "fontawesome5"
+    }
+  ]
+}
