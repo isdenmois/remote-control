@@ -1,12 +1,18 @@
 import { Injectable } from '@nestjs/common';
-import { spawn, spawnSync } from 'child_process';
+import { spawn } from 'promisify-child-process';
 import * as path from 'path';
-import { readFileSync } from 'fs';
-import parseCSV from 'csv-parse/lib/sync';
+import { tmpdir } from 'os'
+import { promises } from 'fs';
+import * as parseCSV from 'csv-parse/lib/sync';
 import { Device } from './system.types';
+
+const readFile = promises.readFile;
 
 @Injectable()
 export class SystemService {
+  private tmpAudioFile = path.join(tmpdir(), 'a.txt');
+  private tmpDisplayFile = path.join(tmpdir(), 'd.txt');
+
   shutdown() {
     const args = ['/s', '/d', 'u:4:5', '/f', '/t', '0'];
     const prog = path.join(process.env.SystemRoot, 'System32', 'shutdown.exe');
@@ -14,24 +20,20 @@ export class SystemService {
     spawn(prog, args, {});
   }
 
-  getAudio() {
-    console.time('aaa');
-    spawnSync('SoundVolumeView.exe', ['/scomma', '/tmp/s.txt'], {});
-    const data = readFileSync('/tmp/s.txt', { encoding: 'utf-8' });
+  async getAudio() {
+    await spawn('SoundVolumeView.exe', ['/scomma', this.tmpAudioFile], {});
+    const data = await readFile(this.tmpAudioFile, { encoding: 'utf-8' });
 
     const result: Device[] = parseCSV(data, { columns: true, skip_empty_lines: true })
       .filter(r => r['Device State'] === 'Active' && r.Direction === 'Render')
       .map(row => ({ id: row['Item ID'], title: row.Name, selected: row.Default === 'Render' }));
 
-    console.timeEnd('aaa');
-
     return result;
   }
 
-  getDisplays() {
-    console.time('ddd');
-    spawnSync('MultiMonitorTool.exe', ['/scomma', 's.txt'], {});
-    const data = readFileSync('./s.txt', { encoding: 'utf-8' });
+  async getDisplays() {
+    await spawn('MultiMonitorTool.exe', ['/scomma', this.tmpDisplayFile], {});
+    const data = await readFile(this.tmpDisplayFile, { encoding: 'utf-8' });
 
     const result: Device[] = parseCSV(data, { columns: true, skip_empty_lines: true })
       .filter(m => m.Disconnected === 'No')
@@ -41,25 +43,22 @@ export class SystemService {
         selected: row.Active === 'Yes',
       }));
 
-    console.timeEnd('ddd');
-
     return result;
   }
 
-  getDevices() {
-    const audio = this.getAudio();
-    const displays = this.getDisplays();
+  async getDevices() {
+    const [audio, displays] = await Promise.all([this.getAudio(), this.getDisplays()]);
 
     return { audio, displays };
   }
 
-  setAudio(audio: string) {
+  async setAudio(audio: string) {
     console.log('Set audio to: ', audio);
-    spawnSync('SoundVolumeView.exe', ['/SetDefault', audio, 'all']);
+    spawn('SoundVolumeView.exe', ['/SetDefault', audio, 'all']);
   }
 
-  setDisplay(display: string) {
+  async setDisplay(display: string) {
     console.log('Set video to: ', display);
-    spawnSync('MultiMonitorTool.exe', ['/switch', display]);
+    spawn('MultiMonitorTool.exe', ['/switch', display]);
   }
 }
