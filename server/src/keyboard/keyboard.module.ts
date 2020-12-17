@@ -6,4 +6,4 @@ import { KeyboardService } from './keyboard.service';
   controllers: [KeyboardController],
   providers: [KeyboardService],
 })
-export class KeyboardModule { }
+export class KeyboardModule {}

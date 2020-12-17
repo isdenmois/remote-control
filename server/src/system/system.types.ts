@@ -1,4 +1,4 @@
-import { ApiProperty, getSchemaPath } from "@nestjs/swagger";
+import { ApiProperty, getSchemaPath } from '@nestjs/swagger';
 
 export class Device {
   @ApiProperty() id: string;
@@ -17,7 +17,7 @@ export const devicesSchema = {
       items: { $ref: getSchemaPath(Device) },
     },
   },
-}
+};
 
 export enum Switch {
   internal = 'internal',

@@ -7,4 +7,4 @@ import { KeyboardModule } from './keyboard/keyboard.module';
 @Module({
   imports: [ConfigModule.forRoot(), FilesModule, SystemModule, KeyboardModule],
 })
-export class AppModule { }
+export class AppModule {}

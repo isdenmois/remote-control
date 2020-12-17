@@ -5,8 +5,7 @@ import { FilesService } from './files.service';
 @ApiTags('Files')
 @Controller('files')
 export class FilesController {
-  constructor(private filesService: FilesService) {
-  }
+  constructor(private filesService: FilesService) {}
 
   @Get('list')
   @ApiQuery({ name: 'dir', required: false })

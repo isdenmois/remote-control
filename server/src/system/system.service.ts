@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { spawn } from 'promisify-child-process';
 import * as path from 'path';
-import { tmpdir } from 'os'
+import { tmpdir } from 'os';
 import { promises } from 'fs';
 import * as parseCSV from 'csv-parse/lib/sync';
 import { Device, Switch } from './system.types';

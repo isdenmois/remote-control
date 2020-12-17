@@ -12,21 +12,21 @@ export class FakeSystemService extends SystemService {
     { id: 'aaa', title: 'AAA-8', selected: false },
   ];
 
-  getAudio() {
+  async getAudio() {
     return this.audio;
   }
 
-  getDisplays() {
+  async getDisplays() {
     return this.video;
   }
 
-  setAudio(id: string) {
+  async setAudio(id: string) {
     this.audio.forEach(device => {
       device.selected = device.id === id;
     });
   }
 
-  setDisplay(id: string) {
+  async setDisplay(id: string) {
     this.video.forEach(device => {
       device.selected = device.id === id;
     });

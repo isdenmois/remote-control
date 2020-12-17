@@ -7,7 +7,7 @@ import { Device, devicesSchema, Switch } from './system.types';
 @Controller()
 @ApiExtraModels(Device)
 export class SystemController {
-  constructor(private systemService: SystemService) { }
+  constructor(private systemService: SystemService) {}
 
   @Get('devices')
   @ApiOkResponse({ schema: devicesSchema })
@@ -32,7 +32,7 @@ export class SystemController {
   }
 
   @Post('displayswitch')
-  @ApiQuery({name: 'type', enum: Switch})
+  @ApiQuery({ name: 'type', enum: Switch })
   displaySwitch(@Query('type') type: Switch) {
     this.systemService.displaySwitch(type);
   }

@@ -5,7 +5,7 @@ import { KeyboardService } from './keyboard.service';
 @ApiTags('Keyboard')
 @Controller()
 export class KeyboardController {
-  constructor(private keyboardService: KeyboardService) { }
+  constructor(private keyboardService: KeyboardService) {}
 
   @Post('keypress')
   @ApiQuery({ name: 'modifiers', isArray: true, required: false })

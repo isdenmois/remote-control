@@ -7,7 +7,7 @@ import * as open from 'open';
 
 @Injectable()
 export class FilesService {
-  constructor(private configService: ConfigService) { }
+  constructor(private configService: ConfigService) {}
 
   private root = this.configService.get('FILES_HOME');
 
