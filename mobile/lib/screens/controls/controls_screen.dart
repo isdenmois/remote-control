@@ -1,18 +1,17 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-import '../components/button.dart';
-import '../components/selected_output.dart';
-import '../components/player_wheel.dart';
-import '../components/confirm_button.dart';
-import '../components/key_button.dart';
-import '../components/event_button.dart';
-import '../components/remote_icons.dart';
-import './files_screen.dart';
+import 'package:remote_control/screens/files/files_screen.dart';
+import 'package:remote_control/widgets/remote_icons.dart';
 
-class ControlsScreen extends HookWidget {
-  const ControlsScreen({Key key}) : super(key: key);
+import 'widgets/button.dart';
+import 'widgets/selected-output.dart';
+import 'widgets/player_wheel.dart';
+import 'widgets/confirm_button.dart';
+import 'widgets/key_button.dart';
+import 'widgets/event_button.dart';
+
+class ControlsScreen extends StatelessWidget {
+  ControlsScreen({Key key}) : super(key: key);
   final rowMargin = const EdgeInsets.only(top: 25);
 
   @override

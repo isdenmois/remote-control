@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:remote_control/services/request.dart';
 
-import './button.dart';
+import 'button.dart';
 
-class EventButton extends StatelessWidget {
-  final String event;
+class KeyButton extends StatelessWidget {
+  final String k;
+  final String modifier;
   final IconData icon;
-  final Map<String, dynamic> params;
 
-  EventButton({@required this.event, @required this.icon, this.params});
+  KeyButton({@required this.k, @required this.icon, this.modifier});
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +17,6 @@ class EventButton extends StatelessWidget {
   }
 
   sendRequest() {
-    request(event, params);
+    request('keypress', {'key': k, 'modifiers': modifier});
   }
 }

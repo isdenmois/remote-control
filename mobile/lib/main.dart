@@ -1,10 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-import './screens/controls_screen.dart';
+import 'package:provider/provider.dart';
+
+import 'screens/controls/controls_screen.dart';
+import 'screens/controls/state/outputs_state.dart';
 
 void main() {
-  runApp(const ProviderScope(child: MyApp()));
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -12,15 +14,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: ControlsScreen(),
-      theme: ThemeData(
-          scaffoldBackgroundColor: Colors.white,
-          elevatedButtonTheme: ElevatedButtonThemeData(
-              style: ElevatedButton.styleFrom(
-            primary: Colors.grey[100],
-            onPrimary: Colors.black,
-          ))),
-    );
+    return ChangeNotifierProvider(
+        create: (context) => outputState,
+        child: MaterialApp(
+          home: ControlsScreen(),
+          theme: ThemeData(
+              scaffoldBackgroundColor: Colors.white,
+              elevatedButtonTheme: ElevatedButtonThemeData(
+                  style: ElevatedButton.styleFrom(
+                primary: Colors.grey[100],
+                onPrimary: Colors.black,
+              ))),
+        ));
   }
 }

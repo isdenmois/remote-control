@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:remote_control/services/confirm_dialog_builder.dart';
+import 'package:remote_control/widgets/confirm_dialog_builder.dart';
 import 'package:remote_control/services/request.dart';
 
-import './button.dart';
+import 'button.dart';
 
 class ConfirmButton extends StatelessWidget {
   final String event;
