@@ -399,3 +399,4 @@ dist
 
 # yarn
 yarn.lock
+/web

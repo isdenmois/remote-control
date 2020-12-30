@@ -25,11 +25,13 @@ class PlayerWheel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: size,
-        height: size,
-        child: Stack(
-          children: [...parts.map((part) => WheelPart(part))],
-        ));
+      width: size,
+      height: size,
+      child: Stack(children: [
+        ...parts.map((part) => WheelPart(part)),
+        ...parts.map((e) => CustomPaint(willChange: false, painter: PathPainter(e.icon))),
+      ]),
+    );
   }
 }
 
@@ -55,13 +57,10 @@ class WheelPart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipPath(
-      child: Stack(children: <Widget>[
-        Material(
-          color: Colors.grey[100],
-          child: InkWell(onTap: () => keyPress(data.key)),
-        ),
-        CustomPaint(willChange: false, painter: PathPainter(data.icon)),
-      ]),
+      child: Material(
+        color: Colors.grey[100],
+        child: InkWell(onTap: () => keyPress(data.key)),
+      ),
       clipper: PathClipper(data.button),
     );
   }
