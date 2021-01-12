@@ -1,0 +1,64 @@
+@font-face {
+  font-family: 'RemoteIcons';
+  src: local('RemoteIcons'), url(./icons.ttf) format('truetype');
+}
+
+.icon::before {
+  font-family: 'RemoteIcons';
+}
+
+.icon.rotate_left::before {
+  content: '\e800';
+}
+
+.icon.rotate_right::before {
+  content: '\e801';
+}
+
+.icon.ok::before {
+  content: '\e802';
+}
+
+.icon.power_off::before {
+  content: '\f011';
+}
+
+.icon.fast_backward::before {
+  content: '\f049';
+}
+
+.icon.fast_forward::before {
+  content: '\f050';
+}
+
+.icon.angle_double_up::before {
+  content: '\f102';
+}
+
+.icon.angle_double_down::before {
+  content: '\f103';
+}
+
+.icon.desktop::before {
+  content: '\f108';
+}
+
+.icon.ellipsis_h::before {
+  content: '\f141';
+}
+
+.icon.closed_captioning::before {
+  content: '\f20a';
+}
+
+.icon.television::before {
+  content: '\f26c';
+}
+
+.icon.folder_open::before {
+  content: '\f07c';
+}
+
+.icon.expand_alt::before {
+  content: '\f424';
+}

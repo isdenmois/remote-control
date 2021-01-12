@@ -399,4 +399,4 @@ dist
 
 # yarn
 yarn.lock
-/web
+/web/.last_build_id
