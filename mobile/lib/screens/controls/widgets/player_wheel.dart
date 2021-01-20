@@ -24,12 +24,14 @@ class PlayerWheel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Container(
       width: size,
       height: size,
       child: Stack(children: [
-        ...parts.map((part) => WheelPart(part)),
-        ...parts.map((e) => CustomPaint(willChange: false, painter: PathPainter(e.icon))),
+        ...parts.map((part) => WheelPart(part, theme.buttonColor)),
+        ...parts.map((e) => CustomPaint(willChange: false, painter: PathPainter(e.icon, theme.primaryColor))),
       ]),
     );
   }
@@ -51,14 +53,15 @@ Path parsePath(Matrix4 matrix, String path) {
 
 class WheelPart extends StatelessWidget {
   final WheelPartData data;
+  final Color color;
 
-  WheelPart(this.data);
+  WheelPart(this.data, this.color);
 
   @override
   Widget build(BuildContext context) {
     return ClipPath(
       child: Material(
-        color: Colors.grey[100],
+        color: color,
         child: InkWell(onTap: () => keyPress(data.key)),
       ),
       clipper: PathClipper(data.button),
@@ -68,12 +71,13 @@ class WheelPart extends StatelessWidget {
 
 class PathPainter extends CustomPainter {
   final Path icon;
+  final Color color;
 
-  PathPainter(this.icon);
+  PathPainter(this.icon, this.color);
 
   @override
   void paint(Canvas canvas, Size size) {
-    canvas.drawPath(icon, Paint()..color = Colors.black);
+    canvas.drawPath(icon, Paint()..color = this.color);
   }
 
   @override
