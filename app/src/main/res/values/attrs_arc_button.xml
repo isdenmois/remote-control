@@ -1,0 +1,7 @@
+<resources>
+    <declare-styleable name="ArcButton">
+        <attr name="arcColor" format="color" />
+        <attr name="arcDrawable" format="color|reference" />
+        <attr name="arcStart" format="integer" />
+    </declare-styleable>
+</resources>

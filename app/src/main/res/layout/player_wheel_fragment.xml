@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.playerwheel.PlayerWheelFragment">
+
+<com.isdenmois.remotecontrol.ui.buttons.ArcButton
+    android:id="@+id/buttonTop"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:arcColor="@color/button_background"
+    app:arcDrawable="@drawable/ic_volume_high_outline"
+    app:arcStart="-135" />
+
+<com.isdenmois.remotecontrol.ui.buttons.ArcButton
+    android:id="@+id/buttonBottom"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:arcColor="@color/button_background"
+    app:arcDrawable="@drawable/ic_volume_medium_outline"
+    app:arcStart="45" />
+
+<com.isdenmois.remotecontrol.ui.buttons.ArcButton
+    android:id="@+id/buttonLeft"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:arcColor="@color/button_background"
+    app:arcDrawable="@drawable/ic_play_back_outline"
+    app:arcStart="135" />
+
+<com.isdenmois.remotecontrol.ui.buttons.ArcButton
+    android:id="@+id/buttonRight"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:arcColor="@color/button_background"
+    app:arcDrawable="@drawable/ic_play_forward_outline"
+    app:arcStart="-45" />
+
+<com.isdenmois.remotecontrol.ui.buttons.CircleButton
+    android:id="@+id/buttonCenter"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:circleColor="@color/button_background"
+    app:circleDrawable="@drawable/ic_pause" />
+</RelativeLayout>
